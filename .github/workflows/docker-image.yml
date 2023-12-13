@@ -15,4 +15,4 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag ansahmohammad/myplugin:$(date +%Y-%m-%d-%H%M%S)
-        docker push your-docker-username/myplugin:$(date +%Y-%m-%d-%H%M%S)
+        docker push ansahmohammad/myplugin:$(date +%Y-%m-%d-%H%M%S)
