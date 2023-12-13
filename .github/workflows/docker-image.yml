@@ -5,14 +5,16 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Set timestamp variable
+      run: echo "TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)" >> $GITHUB_ENV
+
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag ansahmohammad/myplugin:$(date +%Y-%m-%d-%H%M%S)
-        docker push ansahmohammad/myplugin:$(date +%Y-%m-%d-%H%M%S)
+        docker build . --file Dockerfile --tag ansahmohammad/myplugin:$TIMESTAMP
+        docker push ansahmohammad/myplugin:$TIMESTAMP
